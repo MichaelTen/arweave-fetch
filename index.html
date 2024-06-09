@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <!-- above, choose a title and a font you like --> 
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto Slab', serif;
+            background-color: #222222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .content-box {
+            width: 100%;
+            max-width: 600px; /* Set a max-width for larger screens */
+            padding: 20px;
+            background-color: #111111;
+            color: #fbf1bd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            overflow: auto; /* Enable scrolling if content overflows */
+			padding-bottom:45px;
+        }
+        .content-box h1 {
+            color: #df5d17;
+            margin: 0 0 20px 0;
+        }
+        .content-box p, .content-box pre {
+            margin: 0;
+            white-space: pre-wrap; /* Ensures that text wraps properly */
+        }
+    </style>
+  <!-- change the stylings above as you like. this styling likely will not be to your liking. --> 
+</head>
+<body>
+    <div class="content-box">
+	<br />
+        <h1>Heading</h1>
+        <p>Intro</p>
+<!-- above this is just whatever content you want to show above the Arweave fetched content -->
+		<br />
+        <p id="arweave-content">Loading poem...</p>
+    </div>
+    <script>
+        fetch('https://bucket.4everland.store/yourfile.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('arweave-content').innerHTML = `<pre>${data}</pre>`;
+            })
+            .catch(error => {
+                document.getElementById('poem-content').innerHTML = 'Failed to load poem.';
+                console.error('Error fetching poem:', error);
+            });
+    </script>
+<!--in the above script, you can change the URL from https://bucket.4everland.store/yourfile.txt to whatever the Arweave Gateway url to your text file is) -->
+	<br />
+	&nbsp;
+	<br />
+</body>
+</html>
