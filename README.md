@@ -1,7 +1,7 @@
 # arweave-fetch
 Fetch content from Arweave on a webpage using JavaScript. 
 
-#steps
+# steps
 
 1. put content on Arweave as a text file but only containing HTML.
 
